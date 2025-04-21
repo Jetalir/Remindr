@@ -148,7 +148,7 @@ section {
   background-color: #FF7043;
 }
 
-.btnadd {
+.addbtn {
   width: 46px;
   height: 46px;
   border-radius: 50%;
@@ -162,7 +162,7 @@ section {
   justify-content: center;
   transition: background-color 0.2s ease;
 }
-.btnadd:hover {
+.addbtn:hover {
   background-color: #B0BEC5;
 }
 .priority {
