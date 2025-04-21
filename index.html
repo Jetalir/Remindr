@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="main.css">
+
 </head>
 <body>
     <!-- Was fixing Radio buttons and the text inside notes. -->
@@ -22,7 +23,7 @@
             Low
           </label>
           <label>
-            <input type="radio" name="priority" value="medprio" class="radio-medium">
+            <input type="radio" name="priority" value="medprio" class="radio-medium" checked>
             Medium
           </label>
           <label>
@@ -31,11 +32,13 @@
           </label>
         </div>
         <div class="note medprio">
-          <ul>
-            <li>note</li>
-            <li>note</li>
-            <li>note</li>
-          </ul>
+          <div class="note-content">
+            <input type="text" class="type-input" placeholder="Enter Type..." />
+
+            <ul id="task-list" class="editable-list">
+              <li><input type="text" class="task-input" placeholder="Enter task..."></li>
+            </ul>
+          </div>
         </div>
         <button class="btnadd">+</button>
       </section>
@@ -43,7 +46,8 @@
       <section class="todo">
         <h2>To-Do</h2>
         <div class="note medprio">
-          <div class="pin">
+          <div class="pin"></div>
+          <div class="note-content">
             <h3>Type</h3>
             <ul>
               <li>note</li>
@@ -53,7 +57,9 @@
           </div>
         </div>
         <div class="note lowprio">
-          <div class="pin">
+          <div class="pin"></div>
+          <div class="note-content">
+            <h3>Type</h3>
             <ul>
               <li>note</li>
               <li>note</li>
@@ -66,7 +72,9 @@
       <section class="completed">
         <h2>Completed</h2>
         <div class="note highprio">
-          <div class="pin completed">
+          <div class="pin completed"></div>
+          <div class="note-content">
+            <h3>Type</h3>
             <ul>
               <li>note</li>
               <li>note</li>
@@ -78,6 +86,6 @@
 
     </div>
     
-    
+    <script src="script.js"></script>
 </body>
 </html>

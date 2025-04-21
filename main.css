@@ -21,10 +21,10 @@ section {
   display: flex;
   justify-content: center;
   width: 205px;
-  display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .container {
   display: flex;
   justify-content: space-around;
@@ -46,7 +46,6 @@ section {
   position: relative;
   min-height: 150px;
 }
-
 .pin {
   position: absolute;
   top: -6px;
@@ -60,14 +59,88 @@ section {
   z-index: 1;
 }
 
+.note-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.note-content h3 {
+  text-align: center;
+  margin: 0 0 10px 0;
+}
+
+.note-content ul {
+  align-self: flex-start;
+  padding-left: 30px; /* to make it look natural */
+  margin: 0;
+}
+.note-content li {
+  margin-bottom: 5px;
+}
+
+.new .note ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.new .note ul li::marker { /* Bullet in list to have full opacity */	
+  color: rgba(0, 0, 0, 1);
+}
+
+.new .note { 
+  transform: none;
+}
+
+.new .note .task-item {
+  display: list-item; 
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  list-style-type: disc;
+}
+
+
+.type-input,
+.task-input {
+  width: calc(100% - 20px); 
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: transparent;
+  font-family: 'Coming Soon', cursive;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.type-input::placeholder,
+.task-input::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+
+.remove-task {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  color: #c62828;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+}
+
 .pin.completed {
   background: #2196F3;
 }
-
 .lowprio {
   background-color: #4DB6AC;
 }
-
 .medprio {
   background-color: #FBC02D;
 }
@@ -89,7 +162,9 @@ section {
   justify-content: center;
   transition: background-color 0.2s ease;
 }
-
+.btnadd:hover {
+  background-color: #B0BEC5;
+}
 .priority {
   display: flex;
   justify-content: center;
