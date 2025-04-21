@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <!-- Was fixing Radio buttons and the text inside notes. -->
+    <header>
+        <h1>Remindr</h1>
+    </header>
+    <div class="container">
+
+      <section class="new">
+        <h2>New Note</h2>
+        <div class="priority">
+          <label>
+            <input type="radio" name="priority" value="lowprio" class="radio-low">
+            Low
+          </label>
+          <label>
+            <input type="radio" name="priority" value="medprio" class="radio-medium">
+            Medium
+          </label>
+          <label>
+            <input type="radio" name="priority" value="highprio" class="radio-high">
+            High
+          </label>
+        </div>
+        <div class="note medprio">
+          <ul>
+            <li>note</li>
+            <li>note</li>
+            <li>note</li>
+          </ul>
+        </div>
+        <button class="btnadd">+</button>
+      </section>
+
+      <section class="todo">
+        <h2>To-Do</h2>
+        <div class="note medprio">
+          <div class="pin">
+            <h3>Type</h3>
+            <ul>
+              <li>note</li>
+              <li>note</li>
+              <li>note</li>
+            </ul>
+          </div>
+        </div>
+        <div class="note lowprio">
+          <div class="pin">
+            <ul>
+              <li>note</li>
+              <li>note</li>
+              <li>note</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="completed">
+        <h2>Completed</h2>
+        <div class="note highprio">
+          <div class="pin completed">
+            <ul>
+              <li>note</li>
+              <li>note</li>
+              <li>note</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </div>
+    
+    
+</body>
+</html>
