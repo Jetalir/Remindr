@@ -1,8 +1,36 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () =>{
     const taskList = document.getElementById('task-list');
     const radioBtns = document.querySelectorAll('.new input[name="priority"]');
-    const note = document.querySelector('.new .note');
+    const previewNote = document.querySelector('.new .note');
     const addBtn = document.querySelector('.new .addbtn');
+
+    // Add event listener for pin
+    document.querySelector('.container').addEventListener('click', (e) => {
+      if (e.target.classList.contains('pin')) {
+        const pin = e.target;
+        const note = pin.parentElement;
+        const completed = document.querySelector('.completed');
+        const todo = document.querySelector('.todo');
+    
+        if (pin.classList.contains('completed')){
+          todo.appendChild(note);
+          pin.classList.remove('completed');
+        } 
+        else if (!pin.classList.contains('completed')){
+        completed.appendChild(note);
+        pin.classList.add('completed');
+        }
+      }
+    });
+    // Add event listener for remove button
+    document.querySelectorAll('.xmark').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const xbtn = e.target;
+      const note = xbtn.parentElement;
+      note.remove();
+    });
+    });
+
 
     // create a new task input
     function createTaskInput(isFirst = false) {
@@ -33,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return li;
     }
 
+    // Create a new note
     function createNote(){
         const note = document.createElement('div');
         note.className = 'note' + ' ' + document.querySelector('.new input[name="priority"]:checked').value;
@@ -41,8 +70,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const pin = document.createElement('div');
         pin.className = 'pin'; 
         note.appendChild(pin);
-
         
+        // Add remove button to the note
+        const xbtn = document.createElement('button');
+        xbtn.textContent = '✖';
+        xbtn.className = 'xmark';
+        xbtn.addEventListener('click', () => {
+            note.remove();
+        });
+        note.appendChild(xbtn);
+
+        //Apply random rotation to the note
+        const rotation = (Math.random() * 10 - 5).toFixed(2);
+        note.style.transform = `rotate(${rotation}deg)`;
+
+        // Content div
         const content = document.createElement('div');  
         content.className = 'note-content';
         note.appendChild(content);
@@ -54,8 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const unorderedList = document.createElement('ul'); 
         content.appendChild(unorderedList);
 
-        const taskItems = taskList.querySelectorAll('.task-item');
-        taskItems.forEach((taskItem) => {
+        taskList.querySelectorAll('.task-item').forEach((taskItem) => {
             const taskText = taskItem.querySelector('.task-input').value;
             const li = document.createElement('li');
             li.textContent = taskText;
@@ -73,8 +114,8 @@ document.addEventListener('DOMContentLoaded', () => {
         newTask.querySelector('.task-input').focus();
       }
     });
+    // Add button to create a new note
     addBtn.addEventListener('click', () => {
-        // Create a new note with the tasks
         const note = createNote();
         document.querySelector('.todo').appendChild(note);
         
@@ -82,14 +123,14 @@ document.addEventListener('DOMContentLoaded', () => {
         taskList.innerHTML = '';
         taskList.appendChild(createTaskInput(true));
     });
+
     radioBtns.forEach((radioBtn) => {
       radioBtn.addEventListener('change', () => {
         // Update the note with the selected priority
-          note.classList.remove('lowprio', 'medprio', 'highprio');
-          note.classList.add(radioBtn.value);
+        previewNote.classList.remove('lowprio', 'medprio', 'highprio');
+        previewNote.classList.add(radioBtn.value);
       });
-    });
-    
+    });   
 
     // Initialize the first inputbox without a remove button
     taskList.innerHTML = '';

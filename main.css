@@ -40,7 +40,7 @@ section {
   width: 250px;
   max-width: 90vw;
   padding: 20px;
-  margin: 0 20px 20px 20px;
+  margin: 0 20px 40px 20px;
   box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
   transform: rotate(-2deg);
   position: relative;
@@ -57,8 +57,24 @@ section {
   border-radius: 50%;
   box-shadow: 0 2px 4px rgba(0,0,0,0.3);
   z-index: 1;
+  cursor: pointer ;
 }
-
+.xmark {
+  position: absolute;
+  top: -17px;
+  right: -3%;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: #c62828;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0;
+}
+.note:hover .xmark {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
 .note-content {
   display: flex;
   flex-direction: column;
